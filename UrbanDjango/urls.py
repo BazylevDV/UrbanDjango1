@@ -1,3 +1,7 @@
+from django.contrib import admin
+from django.urls import path, include
+from django.views.generic import RedirectView
+
 """
 URL configuration for UrbanDjango project.
 
@@ -19,4 +23,6 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('task2/', include('task2.urls')),  # Подключим маршруты из task2
+    path('', RedirectView.as_view(url='/task2/function/', permanent=False))# добавим маршрут для пустого пути
 ]
